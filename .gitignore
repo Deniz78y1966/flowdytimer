@@ -1,0 +1,16 @@
+# Node / Next.js (frontend)
+node_modules/
+.next/
+out/
+*.log
+.env
+.env.local
+
+# Python (backend)
+venv/
+__pycache__/
+*.pyc
+.env
+
+# macOS
+.DS_Store
