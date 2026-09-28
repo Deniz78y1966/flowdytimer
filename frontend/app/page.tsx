@@ -62,10 +62,10 @@ export default function Home() {
       <div className="w-full max-w-[380px] md:max-w-3xl flex flex-col min-h-screen relative overflow-hidden">
 
         {/* header */}
-        <div className="flex items-center px-5 pt-5 md:px-12 relative z-10">
-          <div className="flex items-center gap-2.5 text-base md:text-xl font-bold tracking-wide">
+        <div className="h-12 shrink-0 relative z-10">
+          <div className="fixed left-5 top-5 z-20 flex items-center gap-2.5 text-base md:left-12 md:text-xl font-bold tracking-wide">
             <span className="w-2.5 h-2.5 md:w-3 md:h-3 bg-[#9FE3AE]" />
-            flowdy
+            flowdy timer
           </div>
         </div>
 
@@ -82,7 +82,7 @@ export default function Home() {
                 muted
                 playsInline
                 ref={(el) => {
-                  if (el) el.playbackRate = 0.23;
+                  if (el) el.playbackRate = 0.28;
                 }}
                 className="w-full h-full object-cover scale-[1.06]"
                 style={{
