@@ -82,7 +82,7 @@ export default function Home() {
                 muted
                 playsInline
                 ref={(el) => {
-                  if (el) el.playbackRate = 0.28;
+                  if (el) el.playbackRate = 0.33;
                 }}
                 className="w-full h-full object-cover scale-[1.06]"
                 style={{
@@ -95,19 +95,29 @@ export default function Home() {
 
           {/* everything on top of the world */}
           <div className="relative z-10 flex flex-col items-center gap-4">
-            <button
-              onClick={() => !running && setPickerOpen((o) => !o)}
-              title={running ? 'Pause to change the timer' : 'Click to change the timer'}
-              className="text-[64px] md:text-[84px] font-bold tracking-wide [text-shadow:0_2px_24px_rgba(0,0,0,0.85)] cursor-pointer"
-            >
-              {mm}:{ss}
-            </button>
+            <div className="relative">
+              <button
+                onClick={() => !running && setPickerOpen((o) => !o)}
+                title={running ? 'Pause to change the timer' : 'Click to change the timer'}
+                className="text-[64px] md:text-[84px] font-bold tracking-wide [text-shadow:0_2px_24px_rgba(0,0,0,0.85)] cursor-pointer"
+              >
+                {mm}:{ss}
+              </button>
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-6 top-1 h-5 w-5 rotate-[-45deg] text-white/85 drop-shadow-[0_1px_5px_rgba(0,0,0,0.9)] md:-right-7 md:top-2"
+              >
+                <span className="absolute left-0 top-1/2 -translate-y-1/2 border-y-[4px] border-r-[6px] border-y-transparent border-r-current" />
+                <span className="absolute left-[5px] top-1/2 h-2 w-3 -translate-y-1/2 rounded-[2px] bg-current" />
+                <span className="absolute right-0 top-1/2 h-2 w-1.5 -translate-y-1/2 rounded-r-[2px] bg-current" />
+              </span>
+            </div>
 
             {pickerOpen && (
               <div className="flex flex-wrap justify-center gap-2 max-w-[300px]">
                 <button
                   onClick={() => chooseMode(null)}
-                  className="px-3 py-2 text-sm bg-black/50 backdrop-blur-sm border-2 border-white/20 hover:border-[#9FE3AE]"
+                  className="rounded-md px-3 py-2 text-sm bg-black/50 backdrop-blur-sm border-2 border-white/20 hover:border-[#9FE3AE]"
                 >
                   ∞ Libre
                 </button>
@@ -115,7 +125,7 @@ export default function Home() {
                   <button
                     key={m}
                     onClick={() => chooseMode(m)}
-                    className="px-3 py-2 text-sm bg-black/50 backdrop-blur-sm border-2 border-white/20 hover:border-[#9FE3AE]"
+                    className="rounded-md px-3 py-2 text-sm bg-black/50 backdrop-blur-sm border-2 border-white/20 hover:border-[#9FE3AE]"
                   >
                     {m} min
                   </button>
@@ -131,7 +141,7 @@ export default function Home() {
                     if (e.key === 'Enter' && n > 0) chooseMode(n);
                   }}
                   placeholder="otro + Enter"
-                  className="w-[120px] px-3 py-2 text-sm bg-black/50 border-2 border-white/20 outline-none placeholder:text-white/30"
+                  className="w-[120px] rounded-md px-3 py-2 text-sm bg-black/50 border-2 border-white/20 outline-none placeholder:text-white/30"
                 />
               </div>
             )}
@@ -147,17 +157,17 @@ export default function Home() {
             <div className="flex items-center justify-center gap-5 mt-6">
               <button
                 onClick={() => setSeconds(0)}
-                className="w-14 h-14 bg-black/40 backdrop-blur-sm border-4 border-white/15 active:translate-y-[2px] active:border-b-0"
+                className="w-14 h-14 rounded-md bg-black/40 backdrop-blur-sm border-4 border-white/15 active:translate-y-[2px] active:border-b-0"
               >
                 ↺
               </button>
               <button
                 onClick={togglePlay}
-                className="w-[76px] h-[76px] bg-[#9FE3AE] text-[#0c1116] border-4 border-b-[6px] border-[#0c1116]/30 active:translate-y-[2px] active:border-b-4 font-bold text-xl"
+                className="w-[76px] h-[76px] rounded-2xl bg-[#9FE3AE] text-[#0c1116] border-4 border-b-[6px] border-[#0c1116]/30 active:translate-y-[2px] active:border-b-4 font-bold text-xl"
               >
                 {running ? '❚❚' : '▶'}
               </button>
-              <button className="w-14 h-14 bg-black/40 backdrop-blur-sm border-4 border-white/15 active:translate-y-[2px] active:border-b-0">
+              <button className="w-14 h-14 rounded-md bg-black/40 backdrop-blur-sm border-4 border-white/15 active:translate-y-[2px] active:border-b-0">
                 〰
               </button>
             </div>
