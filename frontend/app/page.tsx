@@ -58,15 +58,15 @@ export default function Home() {
   return (
     <main className="min-h-screen text-[#eef2f0] flex justify-center relative">
       <Starfield />
+      <div className="fixed left-5 top-5 z-20 scale-[1.05] md:scale-[1.1] flex items-center gap-2.5 whitespace-nowrap font-minecraft text-[17px] md:text-xl font-bold leading-none tracking-wide">
+        <span className="w-3 h-3 shrink-0 bg-[#9FE3AE]" />
+        flowdy timer
+      </div>
 
       <div className="w-full max-w-[380px] md:max-w-3xl lg:max-w-5xl flex flex-col min-h-screen relative overflow-hidden">
 
         {/* header */}
         <div className="h-12 shrink-0 relative z-10">
-          <div className="fixed left-5 top-5 z-20 flex items-center gap-2.5 text-base md:left-12 md:text-xl font-bold tracking-wide">
-            <span className="w-2.5 h-2.5 md:w-3 md:h-3 bg-[#9FE3AE]" />
-            flowdy timer
-          </div>
         </div>
 
         {/* world (background) + timer + controls (foreground) */}
