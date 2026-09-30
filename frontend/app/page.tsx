@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Starfield from './components/Starfield';
 
 type Task = { id: number; text: string; done: boolean };
@@ -59,7 +59,7 @@ export default function Home() {
     <main className="min-h-screen text-[#eef2f0] flex justify-center relative">
       <Starfield />
 
-      <div className="w-full max-w-[380px] md:max-w-3xl flex flex-col min-h-screen relative overflow-hidden">
+      <div className="w-full max-w-[380px] md:max-w-3xl lg:max-w-5xl flex flex-col min-h-screen relative overflow-hidden">
 
         {/* header */}
         <div className="h-12 shrink-0 relative z-10">
@@ -99,13 +99,13 @@ export default function Home() {
               <button
                 onClick={() => !running && setPickerOpen((o) => !o)}
                 title={running ? 'Pause to change the timer' : 'Click to change the timer'}
-                className="text-[64px] md:text-[84px] font-bold tracking-wide [text-shadow:0_2px_24px_rgba(0,0,0,0.85)] cursor-pointer"
+                className="timer-font text-[36px] sm:text-[52px] md:text-[64px] tracking-wide [text-shadow:0_2px_24px_rgba(0,0,0,0.85)] cursor-pointer"
               >
                 {mm}:{ss}
               </button>
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute -right-6 top-1 h-5 w-5 rotate-[-45deg] text-white/85 drop-shadow-[0_1px_5px_rgba(0,0,0,0.9)] md:-right-7 md:top-2"
+                className="pointer-events-none absolute -right-6 top-1 h-4 w-4 rotate-[-45deg] text-white/85 drop-shadow-[0_1px_5px_rgba(0,0,0,0.9)] md:-right-7 md:top-2"
               >
                 <span className="absolute left-0 top-1/2 -translate-y-1/2 border-y-[4px] border-r-[6px] border-y-transparent border-r-current" />
                 <span className="absolute left-[5px] top-1/2 h-2 w-3 -translate-y-1/2 rounded-[2px] bg-current" />
@@ -176,7 +176,7 @@ export default function Home() {
 
         {/* to-do list */}
         <div className="bg-[#12181f]/25 rounded-2xl border-t-4 border-white/10 px-5 pt-6 pb-8 md:px-12 md:pt-8 relative z-10">
-          <div className="flex justify-between mb-4 font-bold md:max-w-2xl md:mx-auto">
+          <div className="flex justify-between mb-4 font-bold md:max-w-2xl lg:max-w-4xl md:mx-auto">
             <span>To-Do</span>
             <span className="text-white/40 font-normal">
               <span className="md:hidden">{mobileDoneCount}/3</span>
@@ -184,11 +184,11 @@ export default function Home() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 md:max-w-2xl md:mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 md:max-w-2xl lg:max-w-4xl md:mx-auto">
             {tasks.map((task, index) => (
               <div
                 key={task.id}
-                className={`${index >= 3 ? 'hidden md:flex' : 'flex'} items-center gap-3 rounded-md bg-white/[.03] border-2 border-white/10 px-4 py-3`}
+                className={`${index >= 3 ? 'hidden md:flex' : 'flex'} items-center gap-3 rounded-md bg-white/[.03] border-2 border-white/10 px-4 py-3 lg:gap-4 lg:px-5 lg:py-4`}
               >
                 <button
                   onClick={() =>
@@ -208,7 +208,7 @@ export default function Home() {
                     )
                   }
                   placeholder="Describe a task"
-                  className="bg-transparent outline-none flex-1 text-sm placeholder:text-white/30"
+                  className="bg-transparent outline-none flex-1 text-sm lg:text-base placeholder:text-white/30"
                 />
               </div>
             ))}

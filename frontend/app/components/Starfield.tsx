@@ -48,9 +48,9 @@ function StarLayer({
 }
 
 export default function Starfield() {
-  const small = useMemo(() => generateShadows(200, 2000, 2000, 1), []);
-  const medium = useMemo(() => generateShadows(80, 2000, 2000, 2), []);
-  const large = useMemo(() => generateShadows(30, 2000, 2000, 3), []);
+  const small = useMemo(() => generateShadows(400, 2000, 2000, 1), []);
+  const medium = useMemo(() => generateShadows(140, 2000, 2000, 2), []);
+  const large = useMemo(() => generateShadows(50, 2000, 2000, 3), []);
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden bg-[#0c1116]">

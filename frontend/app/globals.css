@@ -19,6 +19,12 @@ body {
   font-family: var(--font-minecraft);
 }
 
+.timer-font {
+  font-family: "Press Start 2P", monospace;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
 @keyframes twinkle {
   0%, 100% { opacity: 0.3; }
   50% { opacity: 1; }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import '@fontsource/pixelify-sans/400.css';
 import '@fontsource/pixelify-sans/700.css';
+import '@fontsource/press-start-2p/400.css';
 import "./globals.css";
 
 const geistSans = Geist({
